@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Arduino</title>
+        <link rel="stylesheet" href="node_modules/jquery-colpick/css/colpick.css">
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/jquery-colpick/js/colpick.js"></script>
+
+        <style>
+          body {
+            font-family: Georgia, serif;
+            font-size: 1.1em;
+          }
+          .container {
+            margin: 2em auto;
+            width: 90%;
+            max-width: 40em;
+            line-height: 1.5;
+            text-align: center;
+          }
+          .colorpicker-preview {
+            width: 6em;
+            height: 6em;
+            border-radius: 50%;
+            background: #e0ba6e;
+            cursor: pointer;
+            box-shadow: 0 0 15px 0px rgba(10,10,10,.2);
+            transition: background .1s linear,
+                        transform .3s ease-in-out;
+          }
+
+          .colorpicker-preview:hover {
+            transform: scale(1.1);
+          }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+          <h1><em>Come on baby, light my house</em></h1>
+          <em>Pick a colour</em>
+          <div id="picker" class="colorpicker-preview"></div>
+        </div>
+    </body>
+    <script defer src="/socket.io/socket.io.js"></script>
+    <script defer src="./public/client.js"></script>
+</html>
