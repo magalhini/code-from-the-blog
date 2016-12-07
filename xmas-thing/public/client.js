@@ -5,7 +5,7 @@ $(document).ready(function() {
       $(el).colpickHide();
     },
     onChange:function(hsb,hex,rgb,el,bySetColor) {
-      $(el).css('background', '#' + hex);
+      $(el).children().css('background', '#' + hex);
     }
   });
 });

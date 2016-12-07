@@ -8,37 +8,146 @@
 
         <style>
           body {
-            font-family: Georgia, serif;
-            font-size: 1.1em;
+            font-family: 'HK Serif', serif;
+            background-color: #2E334A;
+            padding: 50px 0 100px;
+            color: #f1f1f1;
           }
+
+          * {
+            box-sizing: border-box;;
+          }
+
+          h1 {
+            font-size: 3em;
+          }
+
+          h1 p {
+            line-height: 1;
+            margin: 0;
+          }
+
+          h1, h2, h3 {
+            font-weight: normal;
+            color: #8EC9D2;
+          }
+
           .container {
             margin: 2em auto;
             width: 90%;
-            max-width: 40em;
+            max-width: 70em;
             line-height: 1.5;
-            text-align: center;
           }
-          .colorpicker-preview {
-            width: 6em;
-            height: 6em;
-            border-radius: 50%;
+
+          .container:before {
+            background-image: url('/public/paper.png');
+            content: "";
+            width: 100%;
+            height: 100%;
+            top: 0; left: 0; right: 0; bottom: 0;
+            position: absolute;
+            opacity: .07;
+            z-index: -1;
+          }
+
+          .description {
+            float: left;
+            width: 50%;
+            font-size: 1.3em;
+            line-height: 1.6;
+          }
+
+          .house__chimney {
             background: #e0ba6e;
+            width: 1em;
+            height: 4em;
+            position: absolute;;
+            left: 7em;
+            top: 0em;
+          }
+
+          .picker {
+            width: 25%;
+            float: left;
+            margin-left: 5em;
+            position: relative;
+          }
+
+          .house {
+            position: relative;
+            margin-top: 3em;
+            height: 6em;
             cursor: pointer;
-            box-shadow: 0 0 15px 0px rgba(10,10,10,.2);
+            transform-origin: 50% 50%;
             transition: background .1s linear,
                         transform .3s ease-in-out;
           }
 
-          .colorpicker-preview:hover {
-            transform: scale(1.1);
+          .house__body {
+            width: 10em;
+            height: 6em;
+            background: #e0ba6e;
+            position: relative;
+            top: -4em;
+          }
+
+          .house__body:before,
+          .house__body:after {
+            position: absolute;
+            content: "";
+            background: #2E334A;
+            left: 1em;
+            top: 2em;
+          }
+
+          .house__body:after {
+            left: 5em;
+            width: 3em;
+            height: 4em;
+            bottom: 0em;
+            top: auto;
+          }
+
+          .house__roof {
+            background: #e0ba6e;
+            width: 8em;
+            left: 1em;
+            height: 8em;
+            position: relative;
+            transform: rotate(45deg);
+          }
+
+          .house:hover {
+            transform: scale(1.03);
+          }
+
+          .status {
+            position: absolute;
+            top: -3em;
+            font-family: sans-serif;
+            font-size: .6em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
           }
         </style>
     </head>
     <body>
         <div class="container">
-          <h1><em>Come on baby, light my house</em></h1>
-          <em>Pick a colour</em>
-          <div id="picker" class="colorpicker-preview"></div>
+          <h1>
+            <p>Come on baby,</p>
+            <em>light my house</em>
+          </h1>
+          <div class="description">
+            <p>A Fox who had never seen a Lion one day met one, and was so terrified at the sight of him that he was ready to die with fear. After a time he met him again, and was still rather frightened, but not nearly so much as he had been when he met him first. But when he saw him for the third time he was so far from being afraid that he went up to him and began to talk to him as if he had known him all his life.</p>
+          </div>
+          <div class="picker">
+            <p class="status">The house is disconnected :(</p>
+            <div class="house" id="picker">
+              <div class="house__chimney"></div>
+              <div class="house__roof"></div>
+              <div class="house__body"></div>
+            </div>
+          </div>
         </div>
     </body>
     <script defer src="/socket.io/socket.io.js"></script>
