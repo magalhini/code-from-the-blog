@@ -38,7 +38,7 @@ $(document).ready(function() {
       $(el).colpickHide();
     },
     onChange:function(hsb,hex,rgb,el,bySetColor) {
-      $('.house').css('fill', '#' + hex);
+      $('.blinking-led').css('background', '#' + hex);
       emitNewValue(rgb);
     }
   });

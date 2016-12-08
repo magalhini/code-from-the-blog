@@ -1,5 +1,5 @@
 body {
-  font-family: 'HK Serif', serif;
+  font-family: 'HKSerif', serif;
   background-color: #2E334A;
   padding: 50px 0 100px;
   color: #f1f1f1;
@@ -53,6 +53,18 @@ h1, h2, h3 {
   text-align: center;
   float: left;
   position: relative;
+}
+
+.blinking-led {
+  position: relative;
+  height: 3em;
+  width: 2em;
+  z-index: -1;
+  border-radius: 40% 40% 0 0;
+  left: 15em;
+  bottom: 6em;
+  box-shadow: 0 0 10px 5px rgba(255,255,255,.3);
+  background: #8EC9D2;
 }
 
 .house {
