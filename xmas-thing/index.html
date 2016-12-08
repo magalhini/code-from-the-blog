@@ -1,155 +1,70 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Arduino</title>
-        <link rel="stylesheet" href="node_modules/jquery-colpick/css/colpick.css">
-        <script src="node_modules/jquery/dist/jquery.min.js"></script>
-        <script src="node_modules/jquery-colpick/js/colpick.js"></script>
-
-        <style>
-          body {
-            font-family: 'HK Serif', serif;
-            background-color: #2E334A;
-            padding: 50px 0 100px;
-            color: #f1f1f1;
-          }
-
-          * {
-            box-sizing: border-box;;
-          }
-
-          h1 {
-            font-size: 3em;
-          }
-
-          h1 p {
-            line-height: 1;
-            margin: 0;
-          }
-
-          h1, h2, h3 {
-            font-weight: normal;
-            color: #8EC9D2;
-          }
-
-          .container {
-            margin: 2em auto;
-            width: 90%;
-            max-width: 70em;
-            line-height: 1.5;
-          }
-
-          .container:before {
-            background-image: url('/public/paper.png');
-            content: "";
-            width: 100%;
-            height: 100%;
-            top: 0; left: 0; right: 0; bottom: 0;
-            position: absolute;
-            opacity: .07;
-            z-index: -1;
-          }
-
-          .description {
-            float: left;
-            width: 50%;
-            font-size: 1.3em;
-            line-height: 1.6;
-          }
-
-          .house__chimney {
-            background: #e0ba6e;
-            width: 1em;
-            height: 4em;
-            position: absolute;;
-            left: 7em;
-            top: 0em;
-          }
-
-          .picker {
-            width: 25%;
-            float: left;
-            margin-left: 5em;
-            position: relative;
-          }
-
-          .house {
-            position: relative;
-            margin-top: 3em;
-            height: 6em;
-            cursor: pointer;
-            transform-origin: 50% 50%;
-            transition: background .1s linear,
-                        transform .3s ease-in-out;
-          }
-
-          .house__body {
-            width: 10em;
-            height: 6em;
-            background: #e0ba6e;
-            position: relative;
-            top: -4em;
-          }
-
-          .house__body:before,
-          .house__body:after {
-            position: absolute;
-            content: "";
-            background: #2E334A;
-            left: 1em;
-            top: 2em;
-          }
-
-          .house__body:after {
-            left: 5em;
-            width: 3em;
-            height: 4em;
-            bottom: 0em;
-            top: auto;
-          }
-
-          .house__roof {
-            background: #e0ba6e;
-            width: 8em;
-            left: 1em;
-            height: 8em;
-            position: relative;
-            transform: rotate(45deg);
-          }
-
-          .house:hover {
-            transform: scale(1.03);
-          }
-
-          .status {
-            position: absolute;
-            top: -3em;
-            font-family: sans-serif;
-            font-size: .6em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-          }
-        </style>
+      <title>Arduino</title>
+      <link rel="stylesheet" href="./public/main.css">
+      <script src="node_modules/jquery/dist/jquery.min.js"></script>
+      <script src="node_modules/jquery-colpick/js/colpick.js"></script>
     </head>
     <body>
         <div class="container">
           <h1>
             <p>Come on baby,</p>
-            <em>light my house</em>
+            <em>light my house 🎶</em>
           </h1>
           <div class="description">
-            <p>A Fox who had never seen a Lion one day met one, and was so terrified at the sight of him that he was ready to die with fear. After a time he met him again, and was still rather frightened, but not nearly so much as he had been when he met him first. But when he saw him for the third time he was so far from being afraid that he went up to him and began to talk to him as if he had known him all his life.</p>
+            <p>Choose a colour by tapping the house and it will change the colours on the little, tiny house
+            that's currently sitting on my desk.</p>
+            <p>This is part of a silly experiment using Web sockets, an Arduino and the johnny-five library.
+            It's part of a tutorial to demonstrate how little it takes to build something a little more
+          physical and interactive in the current Web of things.</p>
           </div>
           <div class="picker">
             <p class="status">The house is disconnected :(</p>
-            <div class="house" id="picker">
-              <div class="house__chimney"></div>
-              <div class="house__roof"></div>
-              <div class="house__body"></div>
-            </div>
+            <svg id="picker" class="house" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="512px" height="512px" viewBox="0 0 57.204 57.203" style="enable-background:new 0 0 57.204 57.203;" xml:space="preserve">
+<g>
+	<g>
+		<path d="M7.745,33.974l2.497,21.231h36.597l2.873-21.231l-21.109-16.55L7.745,33.974z M27.854,50.022h-7.618l-0.48-7.993h8.098    V50.022z M27.854,40.529h-8.188l-0.554-9.241h8.743L27.854,40.529L27.854,40.529z M29.353,31.287h8.743l-0.617,9.241h-8.125    V31.287z M29.353,42.029h8.026l-0.533,7.993h-7.493V42.029z" />
+		<polygon points="57.204,37.844 49.585,19.61 28.838,1.998 24.867,5.298 24.505,9.805 24.48,13.854 13.134,22.742 12.4,15.659     7.495,19.735 0,37.844 28.838,15.113   " />
+		<polygon points="13.74,21.12 23.733,13.292 23.733,9.879 12.574,9.879   " />
+		<path d="M24.106,4.674h-9.908l-1.625,4.683h11.158L24.106,4.674z M22.171,8.358H14.81l0.875-2.685h6.799L22.171,8.358z" />
+	</g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
+<span class="house__choose-colour">Tap the house to choose a colour</span>
           </div>
         </div>
     </body>
-    <script defer src="/socket.io/socket.io.js"></script>
+    <script src="/node_modules/socket.io-client/dist/socket.io.min.js"></script>
     <script defer src="./public/client.js"></script>
 </html>
