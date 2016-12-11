@@ -1,8 +1,9 @@
 $(document).ready(function() {
-  var socket = io.connect(window.location.hostname + ':' + 3000);
+  var socket = io.connect(window.location.host  );
   var isConnected = false;
   var statusElement = $('.status');
   var houseElement = $('.house');
+  var playMusic = $('.play-song');
 
   var setHouseColour = function(colour) {
     houseElement.css('fill', colour);
@@ -32,13 +33,18 @@ $(document).ready(function() {
     socket.emit('join', 'Client is connected!');
   });
 
+  playMusic.on('click', function() {
+    console.log('Playing song...');
+    socket.emit('play', 'Playing song');
+  });
+
   $('#picker').colpick({
     layout: 'RGB',
     onSubmit: function(hsb, hex, rgb, el) {
       $(el).colpickHide();
     },
     onChange:function(hsb,hex,rgb,el,bySetColor) {
-      $('.blinking-led').css('background', '#' + hex);
+      $('.house').css('fill', '#' + hex);
       emitNewValue(rgb);
     }
   });
