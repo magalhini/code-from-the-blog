@@ -1,5 +1,6 @@
 $(document).ready(function() {
-  var socket = io.connect(window.location.host  );
+  // Start the socket connection
+  var socket = io.connect(window.location.host);
   var isConnected = false;
   var statusElement = $('.status');
   var houseElement = $('.house');
@@ -34,7 +35,6 @@ $(document).ready(function() {
   });
 
   playMusic.on('click', function() {
-    console.log('Playing song...');
     socket.emit('play', 'Playing song');
   });
 
