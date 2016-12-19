@@ -39,9 +39,7 @@ let playMusic = function() {
 }
 
 // The initial state for the colors
-let state = {
-  red: 1, green: 1, blue: 1
-};
+let state = { red: 1, green: 1, blue: 1 };
 
 board.on('ready', function() {
   connected = true;
@@ -64,7 +62,6 @@ const defaultColor = '#d8db9c';
 
 io.on('connection', (client) => {
   client.emit('connected', defaultColor);
-  client.on('join', handshake => console.log(handshake));
 
   // When the client sends a "play" event, request the annoying song to be played
   client.on('play', playMusic);

@@ -1,10 +1,12 @@
 <!doctype html>
 <html lang="en">
     <head>
-      <title>Arduino</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Light My House</title>
+      <meta name="description" content="Home page for the Arduino experiment Light my House, using johnny-five and web sockets. Built by @magalhini">
       <link rel="stylesheet" href="./public/styles/main.css">
-      <script src="node_modules/jquery/dist/jquery.min.js"></script>
-      <script src="node_modules/jquery-colpick/js/colpick.js"></script>
+      <script src="./public/libraries/jquery.min.js"></script>
+      <script src="./public/libraries/colpick.js"></script>
     </head>
     <body>
         <div class="container">
@@ -43,6 +45,6 @@
 
       loadStyle('./public/styles/hk-serif.css');
     </script>
-    <script src="/node_modules/socket.io-client/dist/socket.io.min.js"></script>
+    <script src="./public/libraries/socket.io.min.js"></script>
     <script src="./public/client.js"></script>
 </html>
