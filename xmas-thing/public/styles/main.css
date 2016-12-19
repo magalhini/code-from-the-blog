@@ -5,6 +5,10 @@ body {
   color: #f1f1f1;
 }
 
+a {
+  color: #8EC9D2;
+}
+
 button {
   font-family: 'HKSerif', serif;
 }
